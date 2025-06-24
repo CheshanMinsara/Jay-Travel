@@ -324,7 +324,7 @@
         <div class="container">
             <div class="text-center">
                 <h1 class="fw-semibold mb-4" style="color: #ff6f61;">CONTACT US</h1>
-                <form class="mx-auto" style="max-width: 800px;" onsubmit="return validateContactForm(event);">
+                <form class="mx-auto" style="max-width: 800px;" onsubmit="return showSignInAlert(event);">
                     <div class="row mb-3">
                         <div class="col">
                             <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
@@ -350,7 +350,7 @@
                             Subscribe to our newsletter
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary px-4 py-2">SIGN IN</button>
+                    <button type="submit" class="btn btn-success px-4 py-2">SIGN IN</button>
                 </form>
             </div>
         </div>
@@ -387,8 +387,8 @@
                         <div class="d-flex flex-row">
                             <div class="p-2"><i class="fa-solid fa-phone"></i></div>
                             <div class="d-flex flex-column">
-                                <div class="p-2"><a href="+941128759965" class="contact-phone">+94 112 875 965</a></div>
-                                <div class="p-2"><a href="+941128759965" class="contact-phone">+94 112 875 965</a></div>
+                                <div class="p-2"><a href="+94112875965" class="contact-phone">+94 112 875 965</a></div>
+                                <div class="p-2"><a href="+94115879568" class="contact-phone">+94 115 879 568</a></div>
                             </div>
                         </div>
                     </div>
@@ -419,47 +419,8 @@
         integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
         crossorigin="anonymous"></script>
     <script>
-        function validateContactForm(event) {
-            event.preventDefault();
-            let valid = true;
-            // Get form fields
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const email = document.getElementById('email');
-            const phone = document.getElementById('phone');
-
-            // Reset validation
-            [firstName, lastName, email, phone].forEach(field => {
-                field.classList.remove('is-invalid');
-            });
-
-            // Validate first name
-            if (!firstName.value.trim()) {
-                firstName.classList.add('is-invalid');
-                valid = false;
-            }
-            // Validate last name
-            if (!lastName.value.trim()) {
-                lastName.classList.add('is-invalid');
-                valid = false;
-            }
-            // Validate email
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value.trim() || !emailPattern.test(email.value)) {
-                email.classList.add('is-invalid');
-                valid = false;
-            }
-            // Validate phone (10-15 digits)
-            const phonePattern = /^\d{10,15}$/;
-            if (!phone.value.trim() || !phonePattern.test(phone.value)) {
-                phone.classList.add('is-invalid');
-                valid = false;
-            }
-            if (valid) {
-                alert('Thank you for signing in!');
-                event.target.submit();
-            }
-            return false;
+        function showSignInAlert() {
+            alert('Thank you for contacting us!');
         }
     </script>
 </body>
